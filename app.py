@@ -41,7 +41,9 @@ def submit_state():
         college_name = college['school.name']
         # Call the getAvgCompSciRating function with the college name
         avg_rating = getAvgCompSciRating(college_name)
-        avg_rating_str = f"{avg_rating:.2f}" if avg_rating is not 0.0 else "N/A"
+        avg_rating_str = f"{avg_rating:.2f}" if avg_rating is not None else "N/A"
+        if(avg_rating < 0.01):
+            avg_rating_str = "N/A"
 
         college_info += f"""
             <p>
@@ -50,7 +52,7 @@ def submit_state():
                 <strong>State:</strong> {college['school.state']}<br>
                 <strong>Student Size:</strong> {college['latest.student.size']}<br>
                 <strong>Cost of Attendance:</strong> ${college['latest.cost.tuition.in_state']}<br>
-                <strong>Avg Computer Science Professor Rating:</strong> {avg_rating_str}<br>
+                <strong>Avg Computer Science Professor Rating:</strong> {   avg_rating_str}<br>
             </p>
         """   
 
