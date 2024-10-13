@@ -25,15 +25,15 @@ def get_colleges(state=None, name=None, costMin=None, costMax=None, sizeMin=None
         print(f"Error: {response.status_code} - {response.json()}")
         return []
 
-# Example usage  # Change this to a specific state code if needed
-colleges = get_colleges('TX', '', 0, 10000, 0, 10000)
-for college in colleges:
-    if (college['latest.academics.program.bachelors.computer'] == 1):
-        print(
-            f"Name: {college['school.name']}, "
-            f"City: {college['school.city']}, "
-            f"State: {college['school.state']}, "
-            f"Student Size: {college['latest.student.size']}, "
-            f"Student Cost: ${college['latest.cost.tuition.in_state']}, ",
-            f"{college['latest.academics.program.bachelors.computer']}"
-    )
+    # Example usage  # Change this to a specific state code if needed
+    colleges = get_colleges(state, '', costMin, costMax, sizeMin, 100000)
+    for college in colleges:
+        if (college['latest.academics.program.bachelors.computer'] == 1):
+            print(
+                f"Name: {college['school.name']}, "
+                f"City: {college['school.city']}, "
+                f"State: {college['school.state']}, "
+                f"Student Size: {college['latest.student.size']}, "
+                f"Student Cost: ${college['latest.cost.tuition.in_state']}, ",
+                f"{college['latest.academics.program.bachelors.computer']}"
+        )

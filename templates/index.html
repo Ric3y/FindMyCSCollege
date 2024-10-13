@@ -12,9 +12,6 @@
     <form action="/submit_state" method="POST">
         <label for="state">State:</label>
         <input type="text" id="state" name="state" required>
-        
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" required><br><br>
 
         <label for="size">College Size:</label>
         <select id="size" name="size" required>
@@ -24,16 +21,28 @@
         </select><br><br>
             
         <label for="cost">Cost of Attendance (in USD):</label>
-	<div id="cost-slider"></div>
-        <br>
-        <span>Min Cost: $<span id="minCostLabel">1000</span></span>
-        <span>Max Cost: $<span id="maxCostLabel">100000</span></span>
+        <div class="range_container">
+            <div class="sliders_control">
+                <input id="fromSlider" type="range" value="1000" min="1000" max="100000" step="500"/>
+                <input id="toSlider" type="range" value="100000" min="1000" max="100000" step="500"/>
+            </div>
+            <div class="form_control">
+                <div class="form_control_container">
+                    <div class="form_control_container__time">Min</div>
+                    <input class="form_control_container__time__input" type="number" id="fromInput" value="1000" min="1000" max="100000"/>
+                </div>
+                <div class="form_control_container">
+                    <div class="form_control_container__time">Max</div>
+                    <input class="form_control_container__time__input" type="number" id="toInput" value="100000" min="1000" max="100000"/>
+                </div>
+            </div>
+        </div>
         <input type="hidden" id="minCost" name="minCost">
         <input type="hidden" id="maxCost" name="maxCost"><br><br>
 
-	<button type="submit">Submit</button>
-    <script src="static/slider.js"></script> 
+        <button type="submit">Submit</button>
     </form>
+
+    <script src="static/slider.js"></script>
 </body>
 </html>
-
