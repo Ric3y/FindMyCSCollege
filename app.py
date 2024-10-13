@@ -42,12 +42,15 @@ def submit_state():
 
     # Display a message using the collected inputs
     return f"""
+        <link rel="stylesheet" href="/static/styles.css">
         <h1>College Information</h1>
-        <p>State: {state}</p>
-        <p>College Size: {size.capitalize()} (Student Range: {min_students} - {max_students} students) </p>
-        <p>Cost of Attendance Range: ${min_cost} - ${max_cost}</p>
+        <form>
+        <h4>State: {state}</h4>
+        <h4>College Size: {size.capitalize()} (Student Range: {min_students} - {max_students} students) </h4>
+        <h4>Cost of Attendance Range: ${min_cost} - ${max_cost}</h4>
         <h2>Colleges Found:</h2>
         {college_info if college_info else "<p>No colleges found.</p>"}
+        </form>
     """
 
 if __name__ == '__main__':
