@@ -22,11 +22,19 @@ def submit_state():
     min_cost = request.form['minCost']  # Get minimum cost from the form
     max_cost = request.form['maxCost']  # Get maximum cost from the form
 
+    # Convert costs to integers
+    try:
+        min_cost = int(min_cost)
+        max_cost = int(max_cost)
+    except ValueError:
+        return "Invalid input for cost. Please enter numeric values."
+
+    # Get the student size range based on the size mapping
     min_students = size_mapping[size]["min"]
     max_students = size_mapping[size]["max"]
 
     # Call the get_colleges function with the user inputs
-    colleges = get_colleges(state=state, costMin=min_cost, costMax=max_cost, sizeMin=size, sizeMax=size)
+    colleges = get_colleges(state=state, costMin=min_cost, costMax=max_cost, sizeMin=min_students, sizeMax=max_students)
 
     college_info = ""
     for college in colleges:
