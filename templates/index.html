@@ -20,9 +20,15 @@
         <input type="number" id="size" name="size" required><br><br>
 
         <label for="cost">Cost of Attendance (in USD):</label>
-        <input type="range" id="cost" name="cost" min="1000" max="100000" value="50000" step="1000" required><br><br>
+	<div id="cost-slider"></div>
+        <br>
+        <span>Min Cost: $<span id="minCostLabel">1000</span></span>
+        <span>Max Cost: $<span id="maxCostLabel">100000</span></span>
+        <input type="hidden" id="minCost" name="minCost">
+        <input type="hidden" id="maxCost" name="maxCost"><br><br>
 
 	<button type="submit">Submit</button>
+    <script src="static/slider.js"></script> 
     </form>
 </body>
 </html>

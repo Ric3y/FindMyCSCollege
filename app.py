@@ -11,7 +11,8 @@ def submit_state():
     state = request.form['state']
     city = request.form['city']
     size = request.form['size']
-    cost = request.form['cost']
+    min_cost = request.form['minCost']  # Get minimum cost from the form
+    max_cost = request.form['maxCost']  # Get maximum cost from the form
 
     # Display a message using the collected inputs
     return f"""
@@ -19,7 +20,7 @@ def submit_state():
         <p>State: {state}</p>
         <p>City: {city}</p>
         <p>College Size: {size} students</p>
-        <p>Cost of Attendance: ${cost}</p>
+        <p>Cost of Attendance Range: ${min_cost} - ${max_cost}</p>
     """
 
 if __name__ == '__main__':
