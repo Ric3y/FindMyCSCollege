@@ -17,8 +17,12 @@
         <input type="text" id="city" name="city" required><br><br>
 
         <label for="size">College Size:</label>
-        <input type="number" id="size" name="size" required><br><br>
-
+        <select id="size" name="size" required>
+            <option value="small">Small (under 5,000 students)</option>
+            <option value="medium">Medium (5,000 - 15,000 students)</option>
+            <option value="large">Large (over 15,000 students)</option>
+        </select><br><br>
+            
         <label for="cost">Cost of Attendance (in USD):</label>
 	<div id="cost-slider"></div>
         <br>
