@@ -9,7 +9,6 @@ def index():
 @app.route('/submit_state', methods=['POST'])
 def submit_state():
     state = request.form['state']
-    city = request.form['city']
     size = request.form['size']
     min_cost = request.form['minCost']  # Get minimum cost from the form
     max_cost = request.form['maxCost']  # Get maximum cost from the form
