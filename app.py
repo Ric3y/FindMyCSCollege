@@ -19,7 +19,7 @@ def submit_state():
         <h1>College Information</h1>
         <p>State: {state}</p>
         <p>City: {city}</p>
-        <p>College Size: {size} students</p>
+        <p>College Size: {size} </p>
         <p>Cost of Attendance Range: ${min_cost} - ${max_cost}</p>
     """
 
