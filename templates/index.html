@@ -23,17 +23,17 @@
         <label for="cost">Cost of Attendance (in USD):</label>
         <div class="range_container">
             <div class="sliders_control">
-                <input id="fromSlider" type="range" value="1000" min="1000" max="100000" step="500"/>
-                <input id="toSlider" type="range" value="100000" min="1000" max="100000" step="500"/>
+                <input id="fromSlider" type="range" value="1000" min="1000" max="100000" step="500" oninput="updateInputValues()"/>
+                <input id="toSlider" type="range" value="100000" min="1000" max="100000" step="500" oninput="updateInputValues()"/>
             </div>
             <div class="form_control">
                 <div class="form_control_container">
                     <div class="form_control_container__time">Min</div>
-                    <input class="form_control_container__time__input" type="number" id="fromInput" value="1000" min="1000" max="100000"/>
+                    <input class="form_control_container__time__input" type="number" id="fromInput" value="1000" min="1000" max="100000" oninput="updateSliderValues()"/>
                 </div>
                 <div class="form_control_container">
                     <div class="form_control_container__time">Max</div>
-                    <input class="form_control_container__time__input" type="number" id="toInput" value="100000" min="1000" max="100000"/>
+                    <input class="form_control_container__time__input" type="number" id="toInput" value="100000" min="1000" max="100000" oninput="updateSliderValues()"/>
                 </div>
             </div>
         </div>
@@ -43,6 +43,6 @@
         <button type="submit">Submit</button>
     </form>
 
-    <script src="static/slider.js"></script>
+    <script src="{{ url_for('static', filename='slider.js') }}"></script>
 </body>
 </html>
