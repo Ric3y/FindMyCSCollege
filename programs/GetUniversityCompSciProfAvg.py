@@ -27,6 +27,7 @@ def getListOfCompSciProfs(school):
     return allCsProfs
 
 def getAvgCompSciRating(school_name):
+    average = 0
     # Check if the result is already cached
     if school_name in avg_rating_cache:
         return avg_rating_cache[school_name]
@@ -39,14 +40,16 @@ def getAvgCompSciRating(school_name):
         csProfs = getListOfCompSciProfs(otherschool)
         for prof in csProfs:
             total += prof.overall_rating
-        average = total / len(csProfs)
+        if(len(csProfs) is not 0):
+            average = total/len(csProfs)
+            # Store the computed average in the cache
     else:
         print("Invalid school name")
         average = None
-
-    # Store the computed average in the cache
-    avg_rating_cache[school_name] = average
-    save_cache(avg_rating_cache)  # Save cache to file
+    if average is not None:
+        avg_rating_cache[school_name] = average
+        save_cache(avg_rating_cache)  # Save cache to file
+    
     return average
 
 # Example usage
