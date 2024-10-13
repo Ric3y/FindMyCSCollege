@@ -1,0 +1,3 @@
+[submodule "ratemyprof_api"]
+	path = ratemyprof_api
+	url = https://github.com/tisuela/ratemyprof-api.git
