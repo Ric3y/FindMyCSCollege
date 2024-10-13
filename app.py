@@ -38,13 +38,19 @@ def submit_state():
 
     college_info = ""
     for college in colleges:
+        college_name = college['school.name']
+        # Call the getAvgCompSciRating function with the college name
+        avg_rating = getAvgCompSciRating(college_name)
+        avg_rating_str = f"{avg_rating:.2f}" if avg_rating is not 0.0 else "N/A"
+
         college_info += f"""
             <p>
-                <strong>Name:</strong> {college['school.name']}<br>
+                <strong>Name:</strong> {college_name}<br>
                 <strong>City:</strong> {college['school.city']}<br>
                 <strong>State:</strong> {college['school.state']}<br>
                 <strong>Student Size:</strong> {college['latest.student.size']}<br>
                 <strong>Cost of Attendance:</strong> ${college['latest.cost.tuition.in_state']}<br>
+                <strong>Avg Computer Science Professor Rating:</strong> {avg_rating_str}<br>
             </p>
         """   
 
@@ -54,7 +60,7 @@ def submit_state():
         <h1>College Information</h1>
         <form>
         <h4>State: {state}</h4>
-        <h4>College Size: {size.capitalize()} (Student Range: {min_students} - {max_students} students) </h4>
+        <h4>College Size: {size.capitalize()} (Student Range: {min_students} - {max_students} students)</h4>
         <h4>Cost of Attendance Range: ${min_cost} - ${max_cost}</h4>
         <h2>Colleges Found:</h2>
         {college_info if college_info else "<p>No colleges found.</p>"}
