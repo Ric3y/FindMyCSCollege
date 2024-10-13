@@ -1,6 +1,6 @@
 import json
 from RateMyProfessorAPI_136.ratemyprofessor.__init__ import get_school_by_name
-from ratemyprof_api.ratemyprof_api.ratemyprof_api import RateMyProfApi
+from ratemyprof_api import RateMyProfApi
 
 # Load cache from a JSON file
 def load_cache(filename='cache.json'):

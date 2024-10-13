@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from CollegeInformationFunctions import get_colleges  
+from programs.CollegeInformationFunctions import get_colleges  
+from programs.GetUniversityCompSciProfAvg import getAvgCompSciRating
 
 app = Flask(__name__)
 
@@ -25,7 +26,7 @@ def submit_state():
     max_students = size_mapping[size]["max"]
 
     # Call the get_colleges function with the user inputs
-    colleges = get_colleges(state=state, costMin=min_cost, costMax=max_cost, sizeMin=size)
+    colleges = get_colleges(state=state, costMin=min_cost, costMax=max_cost, sizeMin=size, sizeMax=size)
 
     college_info = ""
     for college in colleges:
@@ -43,8 +44,7 @@ def submit_state():
     return f"""
         <h1>College Information</h1>
         <p>State: {state}</p>
-        <p>City: {city}</p>
-        <p>College Size: {size.captialize()} (Student Range: {min_students} - {max_students} students) </p>
+        <p>College Size: {size.capitalize()} (Student Range: {min_students} - {max_students} students) </p>
         <p>Cost of Attendance Range: ${min_cost} - ${max_cost}</p>
         <h2>Colleges Found:</h2>
         {college_info if college_info else "<p>No colleges found.</p>"}
